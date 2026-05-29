@@ -30,10 +30,7 @@ AgendaLocal é uma plataforma simples e moderna que permite a profissionais aut�
    npm install
    ```
 
-3. Configure as variáveis de ambiente baseando-se no arquivo `.env.example` (crie um `.env`).
-   ```env
-   DATABASE_URL="postgres://usuario:senha@localhost:5432/agendalocal"
-   ```
+3. Configure as variáveis de ambiente baseando-se no arquivo `.env.example` (crie um `.env.local`).
 
 4. Execute as migrations do banco de dados (se aplicável):
    ```bash
