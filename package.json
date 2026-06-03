@@ -4,16 +4,18 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
+    "better-auth": "^1.6.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.3.0",
     "drizzle-orm": "^0.45.2",
+    "kysely": "^0.29.2",
     "lucide-react": "^1.17.0",
     "next": "16.2.6",
     "postgres": "^3.4.9",

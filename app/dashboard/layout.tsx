@@ -1,17 +1,30 @@
 import type { Metadata } from 'next';
 import { CalendarDays } from 'lucide-react';
 import Link from 'next/link';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+
+import { auth } from '@/lib/auth';
+import { UserMenu } from './components/user-menu';
 
 export const metadata: Metadata = {
   title: 'Dashboard — AgendaLocal',
   description: 'Painel administrativo do profissional.',
 };
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect('/login');
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
@@ -37,6 +50,10 @@ export default function DashboardLayout({
             >
               Início
             </Link>
+            <UserMenu
+              userEmail={session.user.email}
+              userName={session.user.name}
+            />
           </nav>
         </div>
       </header>
